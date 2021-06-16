@@ -223,8 +223,7 @@ public class Array {
         }
     }
 
-    public static void swap(Array array, int j1, int j2){
-        requireNotNullArray(array);
+    private static void swap(Array array, int j1, int j2){
         int tmp = array.getArray()[j1];
         array.getArray()[j1] = array.getArray()[j2];
         array.getArray()[j2] = tmp;
