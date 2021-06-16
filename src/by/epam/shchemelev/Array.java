@@ -6,6 +6,7 @@ import by.epam.shchemelev.exceptions.InvalidNumberException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array {
@@ -406,4 +407,33 @@ public class Array {
         }
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Array array1 = (Array) object;
+
+        int length = array1.getArray().length;
+
+        for (int i = 0; i < length; i++) {
+            if (array1.getArray()[i] != getArray()[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        for (int num: getArray()){
+            result = 37 * result + num;
+        }
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
