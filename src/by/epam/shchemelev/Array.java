@@ -61,13 +61,7 @@ public class Array {
     // FILL ARRAY
 
     public static void fillArrayWithRandomNumbers(Array array, int length){
-        if (array == null){
-            try {
-                throw new ArrayExistencyException("Array should be not null");
-            } catch (ArrayExistencyException e) {
-                e.printStackTrace();
-            }
-        }
+        requireNotNullArray(array);
         int[] arr = new int[length];
         int k = 0;
 
@@ -78,13 +72,7 @@ public class Array {
     }
 
     public static void fillArrayWithConsole(Array array){
-        if (array == null){
-            try {
-                throw new ArrayExistencyException("Array should be not null");
-            } catch (ArrayExistencyException e) {
-                e.printStackTrace();
-            }
-        }
+        requireNotNullArray(array);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter array size");
         int size = scanner.nextInt();
@@ -101,24 +89,20 @@ public class Array {
                     throw new InvalidNumberException("Number has wrong format");
                 } catch (InvalidNumberException e) {
                     e.printStackTrace();
+                    System.exit(1);
                 }
             }
         }
     }
 
     public static void fillArrayWithFile(Array array, String path) throws FileNotFoundException {
-        if (array == null){
-            try {
-                throw new ArrayExistencyException("Array should be not null");
-            } catch (ArrayExistencyException e) {
-                e.printStackTrace();
-            }
-        }
+        requireNotNullArray(array);
         if (path.isEmpty()){
             try {
                 throw new InvalidDataException("Path should be not null");
             } catch (InvalidDataException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
         }
         File file = new File(path);
@@ -396,7 +380,7 @@ public class Array {
     // TOOLS
 
     public static void requireNotNullArray(Array array){
-        if (array == null && array.getArray() == null){
+        if (array == null || array.getArray() == null){
             try {
                 throw new ArrayExistencyException("Array should be not null");
             } catch (ArrayExistencyException e) {
