@@ -15,8 +15,8 @@ public class ArrayUtils {
         }
     }
 
-    public static int[] getCorrectArray(int[] array, int k){
-        int[] returnArray = new int[k];
+    public static int[] getCorrectArray(int[] array, int arraySize){
+        int[] returnArray = new int[arraySize];
         int k1 = 0;
         for (int element : array) {
             if (element != 0) {

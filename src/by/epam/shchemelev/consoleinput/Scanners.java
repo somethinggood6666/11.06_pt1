@@ -5,7 +5,7 @@ import by.epam.shchemelev.exceptions.InvalidNumberException;
 
 import java.util.Scanner;
 
-public abstract class Scanners {
+public class Scanners {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int inputIntegerNumber(){
@@ -32,6 +32,7 @@ public abstract class Scanners {
                 throw new InvalidDataException("File path has wrong format");
             } catch (InvalidDataException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
         }
     }
@@ -43,6 +44,7 @@ public abstract class Scanners {
                 throw new InvalidNumberException("Number has wrong format");
             } catch (InvalidNumberException e) {
                 e.printStackTrace();
+                System.exit(1);
             }
         }
 

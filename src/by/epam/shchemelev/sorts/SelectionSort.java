@@ -20,9 +20,9 @@ public class SelectionSort implements Sortable{
     public void sortReverse(Array array) {
         int n = array.getArray().length;
         for(int i = 0; i < n - 1; i++){
-            int max_idx = i; // max_idx instead of min_idx
+            int max_idx = i;
             for(int j = i + 1; j < n; j++)
-                if(array.getArray()[j] > array.getArray()[max_idx]) // > instead of <
+                if(array.getArray()[j] > array.getArray()[max_idx])
                     max_idx = j;
             Sortable.swap(array, max_idx, i);
         }

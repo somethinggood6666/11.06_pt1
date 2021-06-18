@@ -168,7 +168,28 @@ public class Array extends ArrayUtils{
     public static int[] findFibNumbers(Array array){
         requireNotNullArray(array);
 
-        return null;
+        int prevNumber = 0;
+        int prevPrevNumber = 0;
+        int currentNumber = 0;
+        int maxValue = getMaximalElement(array);
+
+        int[] fibNumbers = new int[array.getArray().length];
+        int index = 0;
+
+        while (currentNumber < maxValue){
+            currentNumber = (currentNumber == 1) ? 2 : prevNumber + prevPrevNumber;
+            int count = elementMeetsTimes(array, currentNumber);
+            if (count > 0){
+                for (int i = 0; i < count; i++) {
+                    fibNumbers[index] = currentNumber;
+                    index++;
+                }
+            }
+            prevPrevNumber = prevNumber;
+            prevNumber = (currentNumber == 0) ? 1 : currentNumber;
+        }
+
+        return getCorrectArray(fibNumbers, index);
     }
 
     public static int[] findThreeDigitsNumber(Array array){
