@@ -1,6 +1,6 @@
 package by.epam.shchemelev.sorts;
 
-import by.epam.shchemelev.Array;
+import by.epam.shchemelev.array.Array;
 
 public class InsertionSort implements Sortable {
 

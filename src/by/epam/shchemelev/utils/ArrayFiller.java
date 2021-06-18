@@ -1,7 +1,6 @@
-package by.epam.shchemelev.arrayfillers;
+package by.epam.shchemelev.utils;
 
-import by.epam.shchemelev.Array;
-import by.epam.shchemelev.consoleinput.Scanners;
+import by.epam.shchemelev.array.Array;
 import by.epam.shchemelev.exceptions.InvalidDataException;
 import by.epam.shchemelev.exceptions.NoSuchFileException;
 

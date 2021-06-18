@@ -1,4 +1,4 @@
-package by.epam.shchemelev.consoleinput;
+package by.epam.shchemelev.utils;
 
 import by.epam.shchemelev.exceptions.InvalidDataException;
 import by.epam.shchemelev.exceptions.InvalidNumberException;

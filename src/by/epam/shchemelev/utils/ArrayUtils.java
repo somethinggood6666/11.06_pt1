@@ -1,6 +1,6 @@
 package by.epam.shchemelev.utils;
 
-import by.epam.shchemelev.Array;
+import by.epam.shchemelev.array.Array;
 import by.epam.shchemelev.exceptions.ArrayExistencyException;
 import by.epam.shchemelev.exceptions.InvalidDataException;
 

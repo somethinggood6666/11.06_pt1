@@ -1,6 +1,6 @@
-package by.epam.shchemelev;
+package by.epam.shchemelev.array;
 
-import by.epam.shchemelev.arrayfillers.ArrayFiller;
+import by.epam.shchemelev.utils.ArrayFiller;
 import by.epam.shchemelev.sorts.BubbleSort;
 import by.epam.shchemelev.sorts.InsertionSort;
 import by.epam.shchemelev.sorts.SelectionSort;
@@ -17,10 +17,7 @@ public class Array extends ArrayUtils{
 
     public Array(int... vars) {
         this.array = new int[vars.length];
-        for (int i = 0; i < vars.length; i++) {
-            array[i] = vars[i];
-        }
-//        System.arraycopy(vars, 0, array, 0, array.length);
+        System.arraycopy(vars, 0, array, 0, vars.length);
     }
 
     public Array(byte[] array) {
