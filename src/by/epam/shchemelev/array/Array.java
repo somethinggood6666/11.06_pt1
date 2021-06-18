@@ -1,6 +1,7 @@
 package by.epam.shchemelev.array;
 
 import by.epam.shchemelev.enums.SortTypes;
+import by.epam.shchemelev.exceptions.InvalidDataException;
 import by.epam.shchemelev.utils.ArrayFiller;
 import by.epam.shchemelev.sorts.BubbleSort;
 import by.epam.shchemelev.sorts.InsertionSort;
@@ -102,6 +103,67 @@ public class Array extends ArrayUtils{
 
     public void setArray(int[] array) {
         this.array = array;
+    }
+
+    public static void addElement(Array array, int element){
+        requireNotNullArray(array);
+        int[] arr = array.getArray();
+        int[] newArr = new int[arr.length + 1];
+
+        System.arraycopy(arr, 0, newArr, 0, arr.length);
+
+        newArr[newArr.length - 1] = element;
+        array.setArray(newArr);
+    }
+
+    public static void removeElement(Array array, int element){
+        requireNotNullArray(array);
+        int count = elementMeetsTimes(array, element);
+
+        if (count == 0){
+            try {
+                throw new InvalidDataException("No such element in this array");
+            } catch (InvalidDataException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+        }
+
+        int[] arr = array.getArray();
+        int[] newArr = new int[arr.length - count];
+
+        int k = 0;
+        for (int j : arr) {
+            if (j != element) {
+                newArr[k] = j;
+                k++;
+            }
+        }
+        array.setArray(newArr);
+    }
+
+    public static void removeElementByIndex(Array array, int index){
+        requireNotNullArray(array);
+        int[] arr = array.getArray();
+        int[] newArr = new int[arr.length - 1];
+
+        if (index >= arr.length){
+            try {
+                throw new InvalidDataException("No element with that index in this array");
+            } catch (InvalidDataException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+        }
+
+        int k = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i != index) {
+                newArr[k] = arr[i];
+                k++;
+            }
+        }
+        array.setArray(newArr);
     }
 
     public static int getElementByBinarySearch(Array array, int elementToSearch){
