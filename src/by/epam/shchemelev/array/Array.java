@@ -1,5 +1,6 @@
 package by.epam.shchemelev.array;
 
+import by.epam.shchemelev.enums.SortTypes;
 import by.epam.shchemelev.utils.ArrayFiller;
 import by.epam.shchemelev.sorts.BubbleSort;
 import by.epam.shchemelev.sorts.InsertionSort;
@@ -70,30 +71,27 @@ public class Array extends ArrayUtils{
         ArrayFiller.fillArrayWithFile(array);
     }
 
-    private static void performSorting(Array array, Sortable sort, String sortType) {
+    private static void performSorting(Array array, Sortable sort, SortTypes sortType) {
         requireNotNullArray(array);
-        if (sortType.equalsIgnoreCase("straight")){
+        if (sortType == SortTypes.STRAIGHT){
             sort.sortStraight(array);
             return;
         }
-        if (sortType.equalsIgnoreCase("reverse")){
-            sort.sortReverse(array);
-            return;
-        }
-        badSortTypeFormat();
+        sort.sortReverse(array);
+
     }
 
-    public static void selectionSort(Array array, String sortType){
+    public static void selectionSort(Array array, SortTypes sortType){
         Sortable sort = new SelectionSort();
         performSorting(array, sort, sortType);
     }
 
-    public static void insertionSort(Array array, String sortType){
+    public static void insertionSort(Array array, SortTypes sortType){
         Sortable sort = new InsertionSort();
         performSorting(array, sort, sortType);
     }
 
-    public static void bubbleSort(Array array, String sortType){
+    public static void bubbleSort(Array array, SortTypes sortType){
         Sortable sort = new BubbleSort();
         performSorting(array, sort, sortType);
     }

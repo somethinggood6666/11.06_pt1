@@ -2,10 +2,9 @@ package by.epam.shchemelev.utils;
 
 import by.epam.shchemelev.array.Array;
 import by.epam.shchemelev.exceptions.ArrayExistencyException;
-import by.epam.shchemelev.exceptions.InvalidDataException;
 
 public class ArrayUtils {
-    public static void requireNotNullArray(Array array){
+    protected static void requireNotNullArray(Array array){
         if (array == null || array.getArray() == null){
             try {
                 throw new ArrayExistencyException("Array should be not null");
@@ -15,7 +14,7 @@ public class ArrayUtils {
         }
     }
 
-    public static int[] getCorrectArray(int[] array, int arraySize){
+    protected static int[] getCorrectArray(int[] array, int arraySize){
         int[] returnArray = new int[arraySize];
         int k1 = 0;
         for (int element : array) {
@@ -27,7 +26,7 @@ public class ArrayUtils {
         return returnArray;
     }
 
-    public static boolean isPrime(int number){
+    protected static boolean isPrime(int number){
         if (number == 1) return false;
         for (int i = 2; i <= number / 2; i++) {
             if (number % i == 0){
@@ -37,15 +36,7 @@ public class ArrayUtils {
         return true;
     }
 
-    protected static void badSortTypeFormat() {
-        try {
-            throw new InvalidDataException("Sort type given in wrong format");
-        } catch (InvalidDataException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static int elementMeetsTimes(Array array, int curNumber){
+    protected static int elementMeetsTimes(Array array, int curNumber){
         int[] arr = array.getArray();
         int k = 0;
         for (int j : arr) {
